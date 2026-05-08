@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- globe mark -->
+  <g transform="translate(8 14)">
+    <circle cx="24" cy="26" r="22" fill="#6E5DAA"/>
+    <ellipse cx="24" cy="26" rx="22" ry="9" fill="none" stroke="#FAFAF7" stroke-width="1.4"/>
+    <ellipse cx="24" cy="26" rx="9" ry="22" fill="none" stroke="#FAFAF7" stroke-width="1.4"/>
+    <line x1="2" y1="26" x2="46" y2="26" stroke="#FAFAF7" stroke-width="1.4"/>
+    <line x1="24" y1="4" x2="24" y2="48" stroke="#FAFAF7" stroke-width="1.4"/>
+    <circle cx="24" cy="26" r="22" fill="none" stroke="#3F2E7E" stroke-width="1.5"/>
+  </g>
+  <!-- WORLD CLASS -->
+  <text x="62" y="34" font-family="Inter, sans-serif" font-weight="900" font-size="18" letter-spacing="0.02em" fill="#1A1A2E">WORLD CLASS</text>
+  <!-- TRAINING -->
+  <text x="62" y="58" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="0.4em" fill="#6E5DAA">TRAINING ACADEMY</text>
+</svg>

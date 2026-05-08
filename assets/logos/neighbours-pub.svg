@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <!-- beer mug mark -->
+  <g transform="translate(8 14)">
+    <rect x="6" y="14" width="26" height="32" fill="#C8932B" stroke="#6E2436" stroke-width="2" rx="3"/>
+    <path d="M6 22 L 6 38 L 1 36 L 1 24 Z" fill="#C8932B" stroke="#6E2436" stroke-width="2"/>
+    <rect x="32" y="14" width="8" height="20" fill="none" stroke="#6E2436" stroke-width="2" rx="3"/>
+    <!-- foam -->
+    <path d="M6 14 Q 12 8, 18 14 Q 24 8, 32 14 L 32 18 L 6 18 Z" fill="#FAFAF7" stroke="#6E2436" stroke-width="1.5"/>
+  </g>
+  <!-- Neighbour's -->
+  <text x="60" y="36" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="22" letter-spacing="-0.01em" fill="#6E2436">Neighbour's</text>
+  <!-- PUB -->
+  <text x="60" y="58" font-family="Inter, sans-serif" font-weight="600" font-size="10" letter-spacing="0.4em" fill="#1A1A2E">PUB · LLOYDMINSTER</text>
+</svg>

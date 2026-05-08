@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Locations — Reach Screens</title>
+  <meta name="description" content="Every venue in the Reach Screens network across Lloydminster.">
+  <meta name="theme-color" content="#FAFAF7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/logo-dark.webp">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true"><div class="aurora-blob b1"></div><div class="aurora-blob b2"></div><div class="aurora-blob b3"></div></div>
+
+<nav class="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo-dark.webp" alt="Reach Screens" class="nav-logo-img" width="160" height="38"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Get a Recommendation</a></li>
+      <li><a href="host.html">Host a Screen</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html#idea" class="nav-cta">Submit Your Idea →</a></li>
+    </ul>
+    <a href="contact.html#idea" class="nav-mobile-cta">Submit Your Idea</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section style="padding-top:180px;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our network</span>
+      <h1 class="display">Every <em>local venue</em><br>in the network.</h1>
+      <p class="section-sub mt-3">Every venue in the Reach Screens network. This is where your ad shows up.</p>
+    </div>
+
+    <div class="locations-list reveal" id="locationsList"></div>
+
+    <div class="text-center mt-5 reveal">
+      <span class="magnet" data-magnet="10">
+        <a href="contact.html?type=advertise" class="btn btn-primary">
+          Pick locations on the contact form
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo-dark.webp" alt="Reach Screens" class="footer-logo" width="160" height="38" loading="lazy">
+        <p class="footer-tagline">Local digital advertising that puts your business where your customers already look.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Get a Recommendation</a></li><li><a href="host.html">Host a Screen</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="locations.html">All Locations</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="tel:3065143752">306-514-3752</a></li><li><a href="mailto:info@reachscreens.ca">info@reachscreens.ca</a></li><li style="color:var(--slate-2);font-size:13.5px;padding-top:6px;">P.O. Box 11238<br>Lloydminster, AB T9V 3B5</li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Reach Screens. All rights reserved.</div><div>Made in Lloydminster, AB 🇨🇦</div></div>
+  </div>
+</footer>
+
+<script src="main.js?v=1" defer></script>
+<script src="assets/screen-locations.js?v=1" defer></script>
+<script>
+  (function () {
+    function render() {
+      var list = document.getElementById('locationsList');
+      if (!list || !Array.isArray(window.screenLocations)) {
+        setTimeout(render, 100);
+        return;
+      }
+      var html = window.screenLocations.map(function (loc, i) {
+        var screensBadge = (loc.screens && loc.screens > 1)
+          ? '<span class="location-row-screens">' + loc.screens + ' screens</span>' : '';
+        return ''
+          + '<div class="location-row">'
+          +   '<div class="location-row-num">' + String(i + 1).padStart(2, '0') + '</div>'
+          +   '<div class="location-row-body">'
+          +     '<div class="location-row-name">' + loc.name + screensBadge + '</div>'
+          +     '<div class="location-row-addr">' + loc.address + '</div>'
+          +   '</div>'
+          + '</div>';
+      }).join('');
+      list.innerHTML = html;
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', render);
+    else render();
+  })();
+</script>
+</body>
+</html>

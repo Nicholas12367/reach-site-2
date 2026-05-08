@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works — Reach Screens</title>
+  <meta name="description" content="How Reach Screens turns your idea into a live local ad campaign across Lloydminster, from your first message to going live within days.">
+  <meta name="theme-color" content="#FAFAF7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="assets/logo-dark.webp">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+
+<div class="aurora" aria-hidden="true">
+  <div class="aurora-blob b1"></div>
+  <div class="aurora-blob b2"></div>
+  <div class="aurora-blob b3"></div>
+</div>
+
+<nav class="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><img src="assets/logo-dark.webp" alt="Reach Screens" class="nav-logo-img" width="160" height="38"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Get a Recommendation</a></li>
+      <li><a href="host.html">Host a Screen</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html#idea" class="nav-cta">Submit Your Idea →</a></li>
+    </ul>
+    <a href="contact.html#idea" class="nav-mobile-cta">Submit Your Idea</a>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section style="padding-top:180px;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h1 class="display">From idea to <em>on screen</em><br>in days.</h1>
+      <p class="section-sub mt-3">Two sides to every Reach Screens relationship. Pick the one that applies to you.</p>
+    </div>
+
+    <div class="text-center reveal" style="margin-bottom:var(--s-6);">
+      <div class="tabs" data-tabs>
+        <span class="tab-btn-bg"></span>
+        <button class="tab-btn active" data-tab="adv">For Advertisers</button>
+        <button class="tab-btn" data-tab="host">For Hosts</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Advertiser sticky-process -->
+    <div class="tab-panel active" data-tab-target="adv">
+      <div class="sticky-process">
+        <div class="stuck">
+          <div class="stuck-art" data-stuck-art>
+            <img src="assets/photo-1.webp" alt="Tell us your idea" loading="lazy" style="opacity:1;">
+            <img src="assets/photo-3.webp" alt="We recommend the right coverage" loading="lazy" style="opacity:0;">
+            <img src="assets/photo-2.webp" alt="We design your ad" loading="lazy" style="opacity:0;">
+            <img src="assets/photo-4.webp" alt="Live across Lloydminster" loading="lazy" style="opacity:0;">
+          </div>
+        </div>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">Step 01 / 04</div>
+            <h3>Tell us your idea.</h3>
+            <p>What are you promoting, who are you trying to reach, and when do you want it to run? We start with what you want to accomplish, then build the rollout around it.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">Step 02 / 04</div>
+            <h3>We recommend the right coverage.</h3>
+            <p>Based on your idea, timing, and audience, we'll suggest the package and locations that fit. No upselling — just what works for what you're trying to do.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">Step 03 / 04</div>
+            <h3>We design your ad. Free.</h3>
+            <p>Our in-house design team creates a professional 15-second ad optimized for digital screens. You review and approve.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">Step 04 / 04</div>
+            <h3>Goes live across the city.</h3>
+            <p>Your ad plays again and again across the network throughout the day. We'll update it whenever your idea evolves — most updates push out the same day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Host sticky-process -->
+    <div class="tab-panel" data-tab-target="host">
+      <div class="sticky-process">
+        <div class="stuck">
+          <div class="stuck-art" data-stuck-art>
+            <img src="assets/photo-6.webp" alt="Apply to host" loading="lazy" style="opacity:1;">
+            <img src="assets/photo-7.webp" alt="We install" loading="lazy" style="opacity:0;">
+            <img src="assets/photo-8.webp" alt="Free advertising" loading="lazy" style="opacity:0;">
+          </div>
+        </div>
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-num">Step 01 / 03</div>
+            <h3>Apply to host a screen.</h3>
+            <p>If your business has foot traffic and a good wall, you can host a Reach Screens display. Fill out a short form, we'll be in touch within 48 hours.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">Step 02 / 03</div>
+            <h3>We install the screen.</h3>
+            <p>Professional installation at no cost to you. We handle hardware, mounting, and setup. You just give us a wall and an outlet.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-num">Step 03 / 03</div>
+            <h3>Free advertising for your business.</h3>
+            <p>As a host, your business gets rotation on our network across other locations — free advertising in exchange for hosting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeUp .5s var(--ease); }
+.tabs { position: relative; }
+.tabs .tab-btn-bg { width: 50%; }
+</style>
+
+<!-- Why Advertisers Choose Us — bento -->
+<section style="background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why advertisers choose us</span>
+      <h2 class="section-title">A modern way to reach <em class="text-italic">real locals.</em></h2>
+    </div>
+    <div class="bento stagger">
+      <div class="bento-card span-4">
+        <div class="icon-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>Fast turnaround.</h3>
+        <p>Most ads go live within days, not weeks. We move at the speed of your idea, not at the speed of an agency calendar.</p>
+      </div>
+      <div class="bento-card span-4 tone-mint">
+        <div class="icon-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <h3>Built around your budget.</h3>
+        <p>A fraction of the cost of radio, print, or social ads — with the captive attention every other channel can't match.</p>
+      </div>
+      <div class="bento-card span-4 tone-gold">
+        <div class="icon-tile"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3>Free creative.</h3>
+        <p>Professional ad design is included in every package. You don't pay extra for creative — we handle it in-house.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container">
+    <div class="cta reveal">
+      <div class="cta-aurora" aria-hidden="true"></div>
+      <span class="eyebrow" style="background:rgba(255,255,255,0.08);color:var(--cyan-glow);border-color:rgba(255,255,255,0.14);">Let's go</span>
+      <h2>Have an idea? <span class="text-gradient">Let's hear it.</span></h2>
+      <p>Send it over and we'll come back with a plan. Live across Lloydminster within the week.</p>
+      <div class="cta-actions">
+        <span class="magnet" data-magnet="14"><a href="contact.html#idea" class="btn btn-primary btn-lg">Submit your idea</a></span>
+        <span class="magnet" data-magnet="10"><a href="pricing.html" class="btn btn-ghost btn-lg">Get a recommendation</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo-dark.webp" alt="Reach Screens" class="footer-logo" width="160" height="38" loading="lazy">
+        <p class="footer-tagline">Local digital advertising that puts your business where your customers already look.</p>
+      </div>
+      <div><h5>Product</h5><ul><li><a href="how-it-works.html">How It Works</a></li><li><a href="pricing.html">Get a Recommendation</a></li><li><a href="host.html">Host a Screen</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="locations.html">All Locations</a></li></ul></div>
+      <div><h5>Contact</h5><ul><li><a href="tel:3065143752">306-514-3752</a></li><li><a href="mailto:info@reachscreens.ca">info@reachscreens.ca</a></li><li style="color:var(--slate-2);font-size:13.5px;padding-top:6px;">P.O. Box 11238<br>Lloydminster, AB T9V 3B5</li></ul></div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 Reach Screens. All rights reserved.</div><div>Made in Lloydminster, AB 🇨🇦</div></div>
+  </div>
+</footer>
+
+<script src="main.js?v=1" defer></script>
+</body>
+</html>

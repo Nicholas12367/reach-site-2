@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 80" fill="none">
+  <g transform="translate(8 12)">
+    <!-- music-note mark -->
+    <g transform="translate(0 8)" fill="#B23A50">
+      <circle cx="14" cy="34" r="8"/>
+      <rect x="20" y="6" width="3" height="32" rx="1.5"/>
+      <path d="M22 6 C 30 6, 38 12, 36 22 L 36 8 C 36 6, 34 6, 22 6 Z"/>
+    </g>
+  </g>
+  <!-- Cheers (script) -->
+  <text x="60" y="40" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="30" fill="#B23A50" letter-spacing="-0.02em">Cheers</text>
+  <!-- LIVE -->
+  <text x="60" y="62" font-family="Inter, sans-serif" font-weight="800" font-size="14" letter-spacing="0.32em" fill="#1A1A2E">LIVE</text>
+  <line x1="105" y1="56" x2="170" y2="56" stroke="#B23A50" stroke-width="1.5"/>
+</svg>

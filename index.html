@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reach Screens — Local digital advertising, reimagined for Lloydminster</title>
+  <meta name="description" content="Tell us your idea. We put your ad inside the local Lloydminster businesses your customers already visit, and recommend the rollout that fits.">
+  <meta name="theme-color" content="#FAFAF7">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
+  <link rel="preload" as="image" href="assets/logo-dark.webp">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" media="print" onload="this.media='all'">
+  <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+
+<!-- Decorative aurora -->
+<div class="aurora" aria-hidden="true">
+  <div class="aurora-blob b1"></div>
+  <div class="aurora-blob b2"></div>
+  <div class="aurora-blob b3"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" aria-label="Main">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Reach Screens home">
+      <img src="assets/logo-dark.webp" alt="Reach Screens" class="nav-logo-img" width="160" height="38">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="pricing.html">Get a Recommendation</a></li>
+      <li><a href="host.html">Host a Screen</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html#idea" class="nav-cta">Submit Your Idea →</a></li>
+    </ul>
+    <a href="contact.html#idea" class="nav-mobile-cta">Submit Your Idea</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orbit" aria-hidden="true">
+    <div class="orbit-card orbit-1" style="--rot:3deg;">
+      <div class="pic" style="background-image:url('assets/photo-1.webp')"></div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-2);margin-bottom:2px;">Pub & Lounge</div>
+        <div>Lloydminster, AB</div>
+      </div>
+    </div>
+    <div class="orbit-card orbit-2" style="--rot:-4deg;">
+      <span class="orbit-card-dot"></span>
+      <div>
+        <div style="font-family:'Fraunces',serif;font-size:18px;font-style:italic;color:var(--ink);">Live now</div>
+        <div style="font-size:12px;color:var(--slate-2);">35 venues across the city</div>
+      </div>
+    </div>
+    <div class="orbit-card orbit-3" style="--rot:2deg;">
+      <div class="pic" style="background-image:url('assets/photo-3.webp')"></div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-2);margin-bottom:2px;">Coffee Shop</div>
+        <div>Open until 9</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container hero-content">
+    <span class="eyebrow">Now live across Lloydminster</span>
+    <h1 class="display" data-split>
+      <span class="line">Your ad. Right where</span>
+      <span class="line">they already <em>look.</em></span>
+    </h1>
+    <p>Indoor digital screens inside the restaurants, waiting rooms, and shops your customers visit every day. High-frequency, low-cost local advertising — no production fees, no contracts to puzzle over, just a plan that fits your idea.</p>
+    <div class="hero-actions">
+      <span class="magnet" data-magnet="14">
+        <a href="contact.html#idea" class="btn btn-primary btn-lg">
+          Submit your idea
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
+        </a>
+      </span>
+      <span class="magnet" data-magnet="10">
+        <a href="pricing.html" class="btn btn-ghost btn-lg">Get a recommendation</a>
+      </span>
+    </div>
+    <div class="hero-meta">
+      <span class="hero-meta-stars" aria-label="Loved locally">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.39 7.36H22l-6.18 4.49 2.36 7.27L12 16.6 5.82 21.12 8.18 13.85 2 9.36h7.61z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.39 7.36H22l-6.18 4.49 2.36 7.27L12 16.6 5.82 21.12 8.18 13.85 2 9.36h7.61z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.39 7.36H22l-6.18 4.49 2.36 7.27L12 16.6 5.82 21.12 8.18 13.85 2 9.36h7.61z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.39 7.36H22l-6.18 4.49 2.36 7.27L12 16.6 5.82 21.12 8.18 13.85 2 9.36h7.61z"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.39 7.36H22l-6.18 4.49 2.36 7.27L12 16.6 5.82 21.12 8.18 13.85 2 9.36h7.61z"/></svg>
+      </span>
+      <span>Trusted by local brands across Lloydminster</span>
+      <span class="hero-meta-divider"></span>
+      <span>Live within days, not months</span>
+    </div>
+  </div>
+
+  <div class="hero-scroll" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num"><span data-count="35" data-suffix="+">0</span></div>
+        <div class="stat-label">Screen locations across the city</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><span data-count="1800000" data-suffix="+">0</span></div>
+        <div class="stat-label">Monthly ad plays</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num"><span data-count="15" data-suffix="+ min">0</span></div>
+        <div class="stat-label">Average viewer dwell time</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">$<span data-count="0.21">0</span></div>
+        <div class="stat-label">Cost per ad run</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGO MARQUEE -->
+<section class="logo-strip">
+  <div class="container">
+    <div class="logo-strip-head reveal">
+      <span class="eyebrow">Local brands on our network</span>
+      <h3>Already advertising and hosting Reach Screens across Lloydminster</h3>
+    </div>
+    <div class="logo-marquee reveal">
+      <div class="logo-track">
+        <div class="logo-item"><img src="assets/logos/lloydminster-honda.webp" alt="Lloydminster Honda" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/fountain-tire.webp" alt="Fountain Tire" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/supplement-king.svg" alt="Supplement King" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/astec-safety.webp" alt="Astec Safety" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/aveiro-sleep.webp" alt="Aveiro Sleep" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/wilson-registries.webp" alt="Wilson Registries" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/harris-electric.svg" alt="Harris Electric" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/in2golf.webp" alt="IN2GOLF" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/viking-strength.webp" alt="Viking Strength" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/marc-d-up.webp" alt="Marc'd Up Tattoos" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/imagine-laser.webp" alt="Imagine Laserworks" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/truck-zone.webp" alt="Truck Zone" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/cheers-live.svg" alt="Cheers Live" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/border-city-dental.svg" alt="Border City Dental Centre" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/sunrise-pharmacy.svg" alt="Sunrise Pharmacy" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/lloyd-hi-quality-auto.svg" alt="Lloyd Hi-Quality Auto" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/diamond-auto.svg" alt="Diamond Auto" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/sage-and-soul.svg" alt="Sage and Soul" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/hotsuls-ukrainian.svg" alt="Hotsul's Ukrainian" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/neighbours-pub.svg" alt="Neighbours Pub" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/the-sticks.svg" alt="The Sticks" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/summit-vision-training.svg" alt="Summit Vision Training" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/world-class-training.svg" alt="World Class Training" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/mr-sparkle.svg" alt="Mr. Sparkle Car Wash" loading="lazy"></div>
+        <!-- duplicate for seamless loop -->
+        <div class="logo-item"><img src="assets/logos/lloydminster-honda.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/fountain-tire.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/supplement-king.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/astec-safety.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/aveiro-sleep.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/wilson-registries.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/harris-electric.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/in2golf.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/viking-strength.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/marc-d-up.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/imagine-laser.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/truck-zone.webp" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/cheers-live.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/border-city-dental.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/sunrise-pharmacy.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/lloyd-hi-quality-auto.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/diamond-auto.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/sage-and-soul.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/hotsuls-ukrainian.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/neighbours-pub.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/the-sticks.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/summit-vision-training.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/world-class-training.svg" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="logo-item"><img src="assets/logos/mr-sparkle.svg" alt="" aria-hidden="true" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENTO: Why It Works -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why it works</span>
+      <h2 class="section-title">Advertising where attention <em class="text-italic">already lives.</em></h2>
+      <p class="section-sub">Customers spend real time inside the spaces they visit. Your ad plays directly in front of them, again and again — building familiarity that drives action.</p>
+    </div>
+
+    <div class="bento stagger">
+      <div class="bento-card span-7 row-2 tone-mint reveal">
+        <div class="deco-grid"></div>
+        <div class="icon-tile">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>Captive audience.<br>Not a glance — a sit.</h3>
+        <p>Unlike billboards drivers blow past, our screens reach people who are stationary, waiting, or settled in. They actually watch.</p>
+        <div style="margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;">
+          <span style="padding:6px 12px;background:rgba(255,255,255,0.6);border:1px solid var(--line);border-radius:var(--r-pill);font-size:12px;font-weight:500;color:var(--ink);">Restaurants</span>
+          <span style="padding:6px 12px;background:rgba(255,255,255,0.6);border:1px solid var(--line);border-radius:var(--r-pill);font-size:12px;font-weight:500;color:var(--ink);">Waiting rooms</span>
+          <span style="padding:6px 12px;background:rgba(255,255,255,0.6);border:1px solid var(--line);border-radius:var(--r-pill);font-size:12px;font-weight:500;color:var(--ink);">Service shops</span>
+          <span style="padding:6px 12px;background:rgba(255,255,255,0.6);border:1px solid var(--line);border-radius:var(--r-pill);font-size:12px;font-weight:500;color:var(--ink);">Retail floors</span>
+        </div>
+      </div>
+
+      <div class="bento-card span-5 tone-ink reveal">
+        <div class="icon-tile">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Repeated exposure.</h3>
+        <p>Your ad plays on rotation throughout the day. The same customer sees it again and again across one visit — the foundation of recall.</p>
+      </div>
+
+      <div class="bento-card span-5 reveal">
+        <div class="icon-tile">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>City-wide presence.</h3>
+        <p>Show up in restaurants, bars, retail, and offices across Lloydminster. Locals start recognizing you everywhere they go.</p>
+      </div>
+
+      <div class="bento-card span-12 tone-paper reveal" style="display:grid;grid-template-columns:1.2fr 1fr;gap:var(--s-5);align-items:center;">
+        <div>
+          <span class="eyebrow">Free creative</span>
+          <h3 style="margin:8px 0 12px;">We design your ad. <em class="text-italic">Included in every package.</em></h3>
+          <p>You bring the idea. Our in-house team turns it into a 15-second screen ad optimized for indoor digital — no agency fees, no production runaround, no surprise invoices.</p>
+        </div>
+        <div style="position:relative;border-radius:var(--r-3);overflow:hidden;aspect-ratio:16/10;background:#000;box-shadow:var(--sh-md);">
+          <img src="assets/photo-3.webp" alt="A Reach Screens display in a coffee shop" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,184,168,.5),transparent 60%);mix-blend-mode:multiply;"></div>
+          <div style="position:absolute;left:14px;bottom:14px;padding:6px 12px;background:rgba(255,255,255,0.92);border-radius:var(--r-pill);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);">15-sec spot · in-house designed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAG BAND (marquee accent) -->
+<div class="tag-band">
+  <div class="marquee-track" aria-hidden="true">
+    <div class="marquee-item">Restaurants</div>
+    <div class="marquee-item">Barbershops</div>
+    <div class="marquee-item">Waiting rooms</div>
+    <div class="marquee-item">Coffee shops</div>
+    <div class="marquee-item">Retail stores</div>
+    <div class="marquee-item">Auto shops</div>
+    <div class="marquee-item">Bars &amp; pubs</div>
+    <div class="marquee-item">Service businesses</div>
+    <div class="marquee-item">Restaurants</div>
+    <div class="marquee-item">Barbershops</div>
+    <div class="marquee-item">Waiting rooms</div>
+    <div class="marquee-item">Coffee shops</div>
+    <div class="marquee-item">Retail stores</div>
+    <div class="marquee-item">Auto shops</div>
+    <div class="marquee-item">Bars &amp; pubs</div>
+    <div class="marquee-item">Service businesses</div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Real venues</span>
+      <h2 class="section-title">Our screens, across <em class="text-italic">Lloydminster.</em></h2>
+      <p class="section-sub">We're inside the venues locals already love — restaurants, bars, barbershops, coffee shops, retail floors, and waiting areas.</p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="gallery-card tall wide">
+        <img src="assets/photo-1.webp" alt="Pub and lounge with a Reach Screens display" loading="lazy" style="object-position:35% 30%;">
+        <div class="gallery-card-caption">
+          <div class="gallery-card-label">Pub &amp; Lounge</div>
+          <div class="gallery-card-title">Where customers settle in</div>
+        </div>
+      </div>
+      <div class="gallery-card span-2">
+        <img src="assets/photo-3.webp" alt="Coffee shop screen" loading="lazy" style="object-position:center 40%;">
+        <div class="gallery-card-caption">
+          <div class="gallery-card-label">Coffee Shop</div>
+          <div class="gallery-card-title">Morning routine reach</div>
+        </div>
+      </div>
+      <div class="gallery-card span-2">
+        <img src="assets/photo-4.webp" alt="Barber shop with a digital screen" loading="lazy" style="object-position:center 20%;">
+        <div class="gallery-card-caption">
+          <div class="gallery-card-label">Barber Shop</div>
+          <div class="gallery-card-title">Captive, all day</div>
+        </div>
+      </div>
+      <div class="gallery-card span-2">
+        <img src="assets/photo-5.webp" alt="Water refill station with display" loading="lazy" style="object-position:center 20%;">
+        <div class="gallery-card-caption">
+          <div class="gallery-card-label">Water Refill Station</div>
+          <div class="gallery-card-title">Daily-stop visibility</div>
+        </div>
+      </div>
+      <div class="gallery-card span-2">
+        <img src="assets/photo-6.webp" alt="Retail screen display" loading="lazy" style="object-position:center 20%;">
+        <div class="gallery-card-caption">
+          <div class="gallery-card-label">Retail</div>
+          <div class="gallery-card-title">Line-of-sight placement</div>
+        </div>
+      </div>
+      <div class="gallery-card span-2">
+        <img src="assets/photo-7.webp" alt="Pharmacy with a screen" loading="lazy" style="object-position:center 40%;">
+        <div class="gallery-card-caption">
+          <div class="gallery-card-label">Pharmacy</div>
+          <div class="gallery-card-title">Trusted local spaces</div>
+        </div>
+      </div>
+      <div class="gallery-card span-2">
+        <img src="assets/photo-8.webp" alt="Auto repair shop screen" loading="lazy" style="object-position:90% 40%;">
+        <div class="gallery-card-caption">
+          <div class="gallery-card-label">Auto Repair</div>
+          <div class="gallery-card-title">Captive every visit</div>
+        </div>
+      </div>
+      <div class="gallery-card span-2">
+        <img src="assets/photo-2.webp" alt="Car wash with a screen" loading="lazy" style="object-position:center 20%;">
+        <div class="gallery-card-caption">
+          <div class="gallery-card-label">Car Wash</div>
+          <div class="gallery-card-title">Where locals stop</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <span class="magnet" data-magnet="10">
+        <a href="locations.html" class="btn btn-ghost">
+          View all locations
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Live map</span>
+      <h2 class="section-title">Our screens, <em class="text-italic">mapped.</em></h2>
+      <p class="section-sub">Every location in our network. Pan, zoom, and tap a pin to see where your ad will play.</p>
+    </div>
+    <div class="map-wrap reveal">
+      <div id="map" aria-label="Map of Reach Screens locations across Lloydminster"></div>
+      <div class="map-counter">
+        <span class="dot"></span>
+        <span>Across the local businesses Lloydminster relies on</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE SPLIT -->
+<section>
+  <div class="container">
+    <div class="split">
+      <div class="reveal-l">
+        <span class="eyebrow">Simple process</span>
+        <h2 class="section-title">You focus on business.<br>We <em class="text-italic">handle the screens.</em></h2>
+        <p>Tell us your idea, we design the ad for free, and it goes live across the city within days. No production costs, no hassle, no agency in the middle.</p>
+        <ul class="feature-list">
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg></span>Tell us your idea and what you want to promote</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg></span>We design your ad — included free</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg></span>Your ad goes live across the city</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg></span>Update your ad anytime, instantly</li>
+        </ul>
+        <span class="magnet" data-magnet="10">
+          <a href="contact.html#idea" class="btn btn-primary">
+            Submit your idea
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
+          </a>
+        </span>
+      </div>
+      <div class="split-visual reveal-r">
+        <img src="assets/photo-3.webp" alt="A Reach Screens display in a local business" style="object-position:center 40%;">
+        <div class="stamp">Live in Lloydminster</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Compare &amp; save</span>
+      <h2 class="section-title">A fraction of the cost.<br><em class="text-italic">Multiples</em> of the impact.</h2>
+      <p class="section-sub">Cost per 1,000 views, side by side. Reach Screens beats every other channel on price — and it isn't close.</p>
+    </div>
+
+    <div class="compare reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Advertising channel</th>
+            <th>Cost per 1,000 views</th>
+            <th>Avg. attention</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight">
+            <td>Reach Screens<span class="compare-badge">Best Value</span></td>
+            <td><div class="cost-cell"><span class="cost-bar rs" style="--w:1%;"></span><span class="cost-value">$1 to $5</span></div></td>
+            <td>15+ minutes (captive)</td>
+          </tr>
+          <tr><td>Google Ads</td><td><div class="cost-cell"><span class="cost-bar" style="--w:5%;"></span><span class="cost-value">$35+</span></div></td><td>Seconds (click away)</td></tr>
+          <tr><td>Social Media Ads</td><td><div class="cost-cell"><span class="cost-bar" style="--w:6%;"></span><span class="cost-value">$40+</span></div></td><td>1 to 3 seconds (scroll past)</td></tr>
+          <tr><td>Radio</td><td><div class="cost-cell"><span class="cost-bar" style="--w:24%;"></span><span class="cost-value">$175+</span></div></td><td>15 to 30 seconds</td></tr>
+          <tr><td>Highway Billboard</td><td><div class="cost-cell"><span class="cost-bar" style="--w:28%;"></span><span class="cost-value">$200+</span></div></td><td>3 seconds</td></tr>
+          <tr><td>Newspaper</td><td><div class="cost-cell"><span class="cost-bar" style="--w:33%;"></span><span class="cost-value">$240+</span></div></td><td>2 to 5 seconds</td></tr>
+          <tr><td>Local TV</td><td><div class="cost-cell"><span class="cost-bar" style="--w:100%;"></span><span class="cost-value">$720+</span></div></td><td>15 to 30 seconds</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <p style="font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.2rem,2vw,1.5rem);color:var(--ink);max-width:720px;margin:0 auto var(--s-3);">
+        Up to <span class="text-gradient" style="font-style:normal;font-weight:600;">144× cheaper</span> than local TV — with the captive attention every other channel can't match.
+      </p>
+      <span class="magnet" data-magnet="10">
+        <a href="contact.html#idea" class="btn btn-primary">
+          Submit your idea
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section>
+  <div class="container">
+    <div class="quote-block reveal">
+      <span class="quote-mark">"</span>
+      <p class="quote-text">We tried radio. We tried Facebook. Nothing came close to people walking in saying "we saw you on the screens." It's the kind of local that actually <em class="text-italic">moves</em> the needle.</p>
+      <div class="quote-author">
+        <div>
+          <div class="who">A Lloydminster business owner</div>
+          <div class="role">Reach Screens advertiser</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Questions</span>
+      <h2 class="section-title">Frequently <em class="text-italic">asked.</em></h2>
+      <p class="section-sub">Everything you need to know before you start advertising on Reach Screens.</p>
+    </div>
+
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q">How long does it take to go live?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Most ads go live within days. Once we land on your idea, we design the ad, send it for approval, and push it live across the network.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Do you really design the ad for free?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Ad design is included in every package. No production fees, no hidden costs. You tell us what you want, we create it.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I update my ad during the month?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Depending on your package, yes. Higher tiers include multiple ad updates per year, and our top tier includes unlimited updates.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Where are the screens located?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">Inside the local businesses your customers already visit — restaurants, bars, retail shops, barbershops, coffee shops, waiting rooms, and service businesses across Lloydminster.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does the agreement work?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">We'll walk you through the agreement details when you reach out — term, billing, and what's included. Everything is transparent before you sign anything.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How does pricing work?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><div class="faq-a-inner">We build a recommendation around your idea, your timing, and your audience, then quote the rollout that fits. Tell us what you want to promote and we'll come back with a plan and a price within 48 hours.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container">
+    <div class="cta reveal">
+      <div class="cta-aurora" aria-hidden="true"></div>
+      <span class="eyebrow" style="background:rgba(255,255,255,0.08);color:var(--cyan-glow);border-color:rgba(255,255,255,0.14);">Let's go</span>
+      <h2>Got an idea? <span class="text-gradient">Let's get it on screens.</span></h2>
+      <p>Tell us what you want to promote, when you want it to run, and we'll build the rollout around it. Live across Lloydminster within the week.</p>
+      <div class="cta-actions">
+        <span class="magnet" data-magnet="14">
+          <a href="contact.html#idea" class="btn btn-primary btn-lg">
+            Submit your idea
+            <svg class="btn-icon" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"/></svg>
+          </a>
+        </span>
+        <span class="magnet" data-magnet="10">
+          <a href="pricing.html" class="btn btn-ghost btn-lg">Get a recommendation</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="assets/logo-dark.webp" alt="Reach Screens" class="footer-logo" width="160" height="38" loading="lazy">
+        <p class="footer-tagline">Local digital advertising that puts your business where your customers already look — inside the businesses Lloydminster relies on every day.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="pricing.html">Get a Recommendation</a></li>
+          <li><a href="host.html">Host a Screen</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="locations.html">All Locations</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="tel:3065143752">306-514-3752</a></li>
+          <li><a href="mailto:info@reachscreens.ca">info@reachscreens.ca</a></li>
+          <li style="color: var(--slate-2); font-size:13.5px; padding-top:6px;">P.O. Box 11238<br>Lloydminster, AB T9V 3B5</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Reach Screens. All rights reserved.</div>
+      <div>Made in Lloydminster, AB 🇨🇦</div>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js?v=1" defer></script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js" defer></script>
+<script src="assets/screen-locations.js?v=1" defer></script>
+<script src="map.js?v=1" defer></script>
+</body>
+</html>
