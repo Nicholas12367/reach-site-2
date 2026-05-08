@@ -802,6 +802,395 @@ body.cursor-on-cta .cursor-ring {
   pointer-events: none;
 }
 
+/* ============================================================
+   Live Waiting Room — animated TV demo (CSS-only)
+   ============================================================ */
+.room-section { position: relative; }
+.room-stage {
+  position: relative;
+  max-width: 1080px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-5);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--sh-lg);
+  background:
+    linear-gradient(180deg,
+      #F1EAD8 0%,
+      #EFE7D2 65%,
+      #C9B895 65%,
+      #B5A175 100%);
+}
+/* warm ambient lighting from the top-left */
+.room-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 60% at 18% 0%, rgba(255, 240, 200, 0.55), transparent 60%),
+    radial-gradient(50% 50% at 100% 0%, rgba(120, 100, 70, 0.18), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+/* baseboard line where wall meets floor */
+.room-stage::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: 65%;
+  height: 6px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.18), transparent);
+  z-index: 2;
+}
+/* Wall art / sconces — small accent rectangles */
+.room-art {
+  position: absolute;
+  z-index: 3;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #EAD9B5, #D4BE8D);
+  border: 1.5px solid #9C8454;
+  box-shadow: 0 4px 12px rgba(60, 40, 10, 0.18);
+}
+.room-art.a1 { top: 12%; left: 8%; width: 9%; height: 16%; transform: rotate(-2deg); }
+.room-art.a2 { top: 14%; right: 9%; width: 7%; height: 12%; transform: rotate(1.5deg); }
+
+/* Floor shadow under the TV */
+.room-tv-shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  transform: translateX(-50%);
+  width: 56%;
+  height: 18px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.28), transparent 70%);
+  filter: blur(6px);
+  z-index: 3;
+}
+
+/* The actual wall-mounted TV */
+.room-tv {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58%;
+  aspect-ratio: 16 / 9;
+  z-index: 6;
+  border-radius: 12px;
+  padding: 7px 7px 14px;
+  background: linear-gradient(180deg, #1B1F2A, #0B0F18 60%, #050810 100%);
+  box-shadow:
+    0 22px 40px rgba(11, 18, 32, 0.35),
+    0 0 0 1.5px rgba(255,255,255,0.06) inset,
+    0 -1px 0 rgba(255,255,255,0.05) inset;
+}
+/* small "logo" dot under the screen on the bezel */
+.room-tv::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+}
+
+.tv-screen {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: inset 0 0 24px rgba(0,0,0,0.6);
+}
+/* subtle scanline / glass reflection on the screen */
+.tv-screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.04) 100%);
+  pointer-events: none;
+  z-index: 5;
+}
+/* "LIVE" indicator badge on the TV (top-right so it never overlaps ad content) */
+.tv-live {
+  position: absolute;
+  top: 10px; right: 10px;
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  border-radius: var(--r-pill);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  pointer-events: none;
+}
+.tv-live::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #F65A5A;
+  box-shadow: 0 0 0 0 rgba(246, 90, 90, 0.6);
+  animation: pulseLive 1.6s ease-in-out infinite;
+}
+@keyframes pulseLive {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(246, 90, 90, 0.6); }
+  50% { box-shadow: 0 0 0 5px rgba(246, 90, 90, 0); }
+}
+
+/* Each ad fills the screen */
+.tv-ad {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7% 6% 7% 6%;
+  opacity: 0;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+.tv-ad .eyebrow-mini {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(9px, 1vw, 12px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  opacity: 0.78;
+}
+.tv-ad .head {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(20px, 3.4vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+.tv-ad .sub {
+  font-size: clamp(11px, 1.3vw, 15px);
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+.tv-ad .pill {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  background: rgba(255,255,255,0.16);
+  backdrop-filter: blur(8px);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(9px, 1vw, 11px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+/* Ad colour treatments */
+.tv-ad.ad-1 { background: linear-gradient(135deg, #FF6B35 0%, #C8362F 100%); }
+.tv-ad.ad-2 { background: linear-gradient(135deg, #0F2348 0%, #1B4380 60%, #0EB8A8 100%); }
+.tv-ad.ad-3 { background: linear-gradient(135deg, #5E4533 0%, #2F2118 100%); }
+.tv-ad.ad-4 { background: linear-gradient(135deg, #2F6F4A 0%, #1F4D33 100%); }
+.tv-ad.ad-5 { background: linear-gradient(135deg, #E69ABF 0%, #B3578B 60%, #8C3268 100%); }
+.tv-ad.ad-6 { background: linear-gradient(135deg, #0EB8A8 0%, #155E9A 100%); }
+.tv-ad .deco-circle {
+  position: absolute;
+  width: 60%; aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 60%);
+  right: -15%; bottom: -25%;
+  pointer-events: none;
+}
+
+/* The 6-ad rotation: 18s cycle, each ad gets ~3s.
+   Each ad has its own keyframe so it's only opacity 1 in its slot.
+   A subtle scale/translate on enter gives a "live" feel. */
+.tv-ad { animation-duration: 18s; animation-iteration-count: infinite; animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); }
+.tv-ad.ad-1 { animation-name: adSlot1; }
+.tv-ad.ad-2 { animation-name: adSlot2; }
+.tv-ad.ad-3 { animation-name: adSlot3; }
+.tv-ad.ad-4 { animation-name: adSlot4; }
+.tv-ad.ad-5 { animation-name: adSlot5; }
+.tv-ad.ad-6 { animation-name: adSlot6; }
+@keyframes adSlot1 {
+  0%   { opacity: 1; transform: scale(1.025); }
+  3%   { opacity: 1; transform: scale(1); }
+  16%  { opacity: 1; transform: scale(1); }
+  17%  { opacity: 0; transform: scale(0.985); }
+  100% { opacity: 0; }
+}
+@keyframes adSlot2 {
+  0%, 16%   { opacity: 0; }
+  17%       { opacity: 1; transform: scale(1.025); }
+  20%       { opacity: 1; transform: scale(1); }
+  33%       { opacity: 1; transform: scale(1); }
+  34%, 100% { opacity: 0; transform: scale(0.985); }
+}
+@keyframes adSlot3 {
+  0%, 33%   { opacity: 0; }
+  34%       { opacity: 1; transform: scale(1.025); }
+  37%       { opacity: 1; transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1); }
+  51%, 100% { opacity: 0; transform: scale(0.985); }
+}
+@keyframes adSlot4 {
+  0%, 50%   { opacity: 0; }
+  51%       { opacity: 1; transform: scale(1.025); }
+  54%       { opacity: 1; transform: scale(1); }
+  66%       { opacity: 1; transform: scale(1); }
+  67%, 100% { opacity: 0; transform: scale(0.985); }
+}
+@keyframes adSlot5 {
+  0%, 66%   { opacity: 0; }
+  67%       { opacity: 1; transform: scale(1.025); }
+  70%       { opacity: 1; transform: scale(1); }
+  83%       { opacity: 1; transform: scale(1); }
+  84%, 100% { opacity: 0; transform: scale(0.985); }
+}
+@keyframes adSlot6 {
+  0%, 83%   { opacity: 0; }
+  84%       { opacity: 1; transform: scale(1.025); }
+  87%       { opacity: 1; transform: scale(1); }
+  99%       { opacity: 1; transform: scale(1); }
+  100%      { opacity: 0; }
+}
+
+/* Waiting-room chairs (CSS-only) */
+.chair {
+  position: absolute;
+  bottom: 4%;
+  z-index: 4;
+  width: 16%;
+  aspect-ratio: 1 / 1.1;
+}
+.chair.left { left: 5%; transform: scaleX(1) rotate(-1deg); }
+.chair.right { right: 5%; transform: scaleX(-1) rotate(-1deg); }
+.chair-back {
+  position: absolute;
+  top: 0; left: 12%; right: 12%;
+  height: 70%;
+  border-radius: 14px 14px 6px 6px;
+  background: linear-gradient(180deg, #5C7A8C 0%, #486374 100%);
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.25), inset -3px 0 0 rgba(0,0,0,0.12);
+}
+.chair-seat {
+  position: absolute;
+  bottom: 12%;
+  left: 0; right: 0;
+  height: 30%;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #6A8AA0 0%, #486374 100%);
+  box-shadow: 2px 4px 10px rgba(0,0,0,0.25);
+}
+.chair-leg {
+  position: absolute;
+  bottom: 0;
+  width: 6%;
+  height: 12%;
+  background: #2F3B45;
+  border-radius: 1px 1px 2px 2px;
+}
+.chair-leg.l { left: 14%; }
+.chair-leg.r { right: 14%; }
+
+/* Side table with a coffee cup */
+.room-side {
+  position: absolute;
+  bottom: 6%;
+  left: 24%;
+  width: 8%;
+  aspect-ratio: 1 / 1.1;
+  z-index: 4;
+}
+.room-side .top {
+  position: absolute;
+  top: 30%; left: 0; right: 0;
+  height: 8%;
+  background: #6F4E2E;
+  border-radius: 2px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.2);
+}
+.room-side .leg {
+  position: absolute;
+  top: 38%; left: 45%;
+  width: 10%; height: 56%;
+  background: #5A3E22;
+  border-radius: 2px;
+}
+.room-side .cup {
+  position: absolute;
+  top: 14%; left: 35%;
+  width: 30%; aspect-ratio: 1;
+  background: #FFFFFF;
+  border-radius: 50% 50% 4px 4px / 35% 35% 4px 4px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+}
+.room-side .cup::before {
+  content: '';
+  position: absolute;
+  top: 10%; left: 10%; right: 10%; height: 30%;
+  background: #6F4E2E;
+  border-radius: 50%;
+  filter: blur(0.5px);
+}
+
+/* Plant on the right of the second chair */
+.room-plant {
+  position: absolute;
+  bottom: 4%;
+  right: 26%;
+  width: 9%;
+  aspect-ratio: 1 / 1.5;
+  z-index: 4;
+}
+.room-plant .pot {
+  position: absolute;
+  bottom: 0; left: 12%; right: 12%;
+  height: 28%;
+  background: linear-gradient(180deg, #B8784A, #8C5630);
+  border-radius: 4px 4px 8px 8px;
+}
+.room-plant .leaf {
+  position: absolute;
+  background: #4F7E55;
+  border-radius: 50% 0 50% 0;
+}
+.room-plant .leaf.l1 { bottom: 26%; left: 0;   width: 50%; height: 60%; transform: rotate(-30deg); transform-origin: bottom right; background: #4F7E55; }
+.room-plant .leaf.l2 { bottom: 26%; right: 0;  width: 50%; height: 60%; transform: rotate(30deg) scaleX(-1); transform-origin: bottom left; background: #5C8F62; }
+.room-plant .leaf.l3 { bottom: 32%; left: 18%; width: 64%; height: 80%; transform: rotate(0deg); border-radius: 50%; background: #649A6C; }
+
+/* Mobile tightening */
+@media (max-width: 700px) {
+  .room-stage { aspect-ratio: 4/5; }
+  .room-tv { width: 80%; top: 8%; }
+  .chair { width: 24%; bottom: 3%; }
+  .chair.left { left: 2%; }
+  .chair.right { right: 2%; }
+  .room-side { left: 30%; bottom: 4%; width: 14%; }
+  .room-plant { right: 32%; width: 14%; bottom: 2%; }
+  .room-art { display: none; }
+  .tv-ad .head { font-size: clamp(20px, 6vw, 30px); }
+}
+
+/* Reduced motion: hold the first ad */
+@media (prefers-reduced-motion: reduce) {
+  .tv-ad { animation: none !important; }
+  .tv-ad.ad-1 { opacity: 1; }
+  .tv-ad:not(.ad-1) { opacity: 0; }
+  .tv-live::before { animation: none; }
+}
+
 /* ----- Photography Gallery ----- */
 .gallery-grid {
   display: grid;
